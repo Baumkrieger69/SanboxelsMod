@@ -1,0 +1,612 @@
+{
+  "info": {
+    "name": "Mega Content Mod",
+    "description": "Eine riesige Mod mit Glas, schmelzbarem Sand, Waffeln und vielen anderen coolen Features!",
+    "author": "Claude",
+    "version": "1.0"
+  },
+  "elements": {
+    "molten_sand": {
+      "color": "#ff6600",
+      "behavior": [
+        "XX|CR:fire,M2|XX",
+        "M1|XX|M1",
+        "M2|M1|M2"
+      ],
+      "reactions": {
+        "water": { "elem1": "sand", "elem2": "steam" },
+        "ice": { "elem1": "sand", "elem2": "water" }
+      },
+      "temp": 1700,
+      "category": "liquids",
+      "state": "liquid",
+      "density": 2650,
+      "stain": 0.1
+    },
+    "glass": {
+      "color": "#e6f3ff",
+      "behavior": "STURDYPOWDER",
+      "reactions": {
+        "acid": { "elem1": "dissolved", "elem2": null, "chance": 0.1 }
+      },
+      "temp": 20,
+      "category": "solids",
+      "state": "solid",
+      "density": 2500,
+      "breakInto": "glass_shard",
+      "hardness": 0.3
+    },
+    "glass_shard": {
+      "color": "#ccddff",
+      "behavior": [
+        "XX|XX|XX",
+        "SW:glass_shard,glass|XX|SW:glass_shard,glass",
+        "M2|M1|M2"
+      ],
+      "temp": 20,
+      "category": "powders",
+      "state": "solid",
+      "density": 2500
+    },
+    "flour": {
+      "color": "#fff8dc",
+      "behavior": "POWDER",
+      "reactions": {
+        "water": { "elem1": "dough", "elem2": null }
+      },
+      "temp": 20,
+      "category": "food",
+      "state": "solid",
+      "density": 1500
+    },
+    "dough": {
+      "color": "#f5deb3",
+      "behavior": "LIQUID",
+      "reactions": {
+        "fire": { "elem1": "bread", "elem2": null },
+        "lava": { "elem1": "bread", "elem2": null }
+      },
+      "temp": 20,
+      "category": "food",
+      "state": "liquid",
+      "density": 1200,
+      "viscosity": 10000
+    },
+    "bread": {
+      "color": "#daa520",
+      "behavior": "STURDYPOWDER",
+      "reactions": {
+        "water": { "elem1": "moldy_bread", "elem2": null, "chance": 0.01 }
+      },
+      "temp": 80,
+      "category": "food",
+      "state": "solid",
+      "density": 1000
+    },
+    "moldy_bread": {
+      "color": "#228b22",
+      "behavior": "STURDYPOWDER",
+      "reactions": {
+        "fire": { "elem1": "ash", "elem2": "stench" }
+      },
+      "temp": 20,
+      "category": "food",
+      "state": "solid",
+      "density": 900
+    },
+    "waffle_batter": {
+      "color": "#fff5dc",
+      "behavior": "LIQUID",
+      "reactions": {
+        "fire": { "elem1": "waffle", "elem2": null },
+        "lava": { "elem1": "burnt_waffle", "elem2": null }
+      },
+      "temp": 20,
+      "category": "food",
+      "state": "liquid",
+      "density": 1100,
+      "viscosity": 8000
+    },
+    "waffle": {
+      "color": "#deb887",
+      "behavior": "STURDYPOWDER",
+      "reactions": {
+        "honey": { "elem1": "sweet_waffle", "elem2": null },
+        "syrup": { "elem1": "sweet_waffle", "elem2": null }
+      },
+      "temp": 60,
+      "category": "food",
+      "state": "solid",
+      "density": 800
+    },
+    "burnt_waffle": {
+      "color": "#654321",
+      "behavior": "STURDYPOWDER",
+      "temp": 120,
+      "category": "food",
+      "state": "solid",
+      "density": 700
+    },
+    "sweet_waffle": {
+      "color": "#cd853f",
+      "behavior": "STURDYPOWDER",
+      "temp": 25,
+      "category": "food",
+      "state": "solid",
+      "density": 850
+    },
+    "honey": {
+      "color": "#ffd700",
+      "behavior": "LIQUID",
+      "temp": 25,
+      "category": "food",
+      "state": "liquid",
+      "density": 1400,
+      "viscosity": 15000,
+      "stain": 0.02
+    },
+    "syrup": {
+      "color": "#8b4513",
+      "behavior": "LIQUID",
+      "temp": 25,
+      "category": "food",
+      "state": "liquid",
+      "density": 1300,
+      "viscosity": 12000,
+      "stain": 0.03
+    },
+    "chocolate": {
+      "color": "#7b3f00",
+      "behavior": "STURDYPOWDER",
+      "reactions": {
+        "fire": { "elem1": "melted_chocolate", "elem2": null, "tempMin": 150 }
+      },
+      "temp": 20,
+      "category": "food",
+      "state": "solid",
+      "density": 1200
+    },
+    "melted_chocolate": {
+      "color": "#5d2f00",
+      "behavior": "LIQUID",
+      "reactions": {
+        "cold": { "elem1": "chocolate", "elem2": null, "tempMax": 30 }
+      },
+      "temp": 200,
+      "category": "food",
+      "state": "liquid",
+      "density": 1100,
+      "viscosity": 8000
+    },
+    "ice_cream": {
+      "color": "#fffacd",
+      "behavior": "LIQUID",
+      "reactions": {
+        "fire": { "elem1": "milk", "elem2": "steam" },
+        "salt": { "elem1": "salty_ice_cream", "elem2": null }
+      },
+      "temp": -5,
+      "category": "food",
+      "state": "liquid",
+      "density": 900,
+      "viscosity": 20000
+    },
+    "salty_ice_cream": {
+      "color": "#f0e68c",
+      "behavior": "LIQUID",
+      "temp": -3,
+      "category": "food", 
+      "state": "liquid",
+      "density": 950,
+      "viscosity": 18000
+    },
+    "concrete_mix": {
+      "color": "#808080",
+      "behavior": "POWDER",
+      "reactions": {
+        "water": { "elem1": "wet_concrete", "elem2": null }
+      },
+      "temp": 20,
+      "category": "solids",
+      "state": "solid",
+      "density": 2400
+    },
+    "wet_concrete": {
+      "color": "#696969",
+      "behavior": "LIQUID",
+      "reactions": {
+        "time": { "elem1": "concrete", "elem2": null, "chance": 0.005 }
+      },
+      "temp": 20,
+      "category": "solids",
+      "state": "liquid",
+      "density": 2200,
+      "viscosity": 50000
+    },
+    "concrete": {
+      "color": "#a9a9a9",
+      "behavior": "WALL",
+      "temp": 20,
+      "category": "solids",
+      "state": "solid",
+      "density": 2400,
+      "hardness": 0.8
+    },
+    "rubber": {
+      "color": "#2f4f2f",
+      "behavior": [
+        "XX|XX|XX",
+        "XX|XX|XX", 
+        "XX|XX|XX"
+      ],
+      "reactions": {
+        "fire": { "elem1": "melted_rubber", "elem2": "smoke", "tempMin": 300 }
+      },
+      "temp": 20,
+      "category": "solids",
+      "state": "solid",
+      "density": 900,
+      "conduct": 0
+    },
+    "melted_rubber": {
+      "color": "#1c1c1c",
+      "behavior": "LIQUID",
+      "temp": 400,
+      "category": "liquids",
+      "state": "liquid",
+      "density": 800,
+      "viscosity": 30000
+    },
+    "plastic": {
+      "color": "#ff69b4",
+      "behavior": "STURDYPOWDER",
+      "reactions": {
+        "fire": { "elem1": "melted_plastic", "elem2": "toxic_gas", "tempMin": 200 }
+      },
+      "temp": 20,
+      "category": "solids",
+      "state": "solid",
+      "density": 950
+    },
+    "melted_plastic": {
+      "color": "#ff1493",
+      "behavior": "LIQUID",
+      "temp": 300,
+      "category": "liquids",
+      "state": "liquid",
+      "density": 800,
+      "viscosity": 25000
+    },
+    "toxic_gas": {
+      "color": "#9acd32",
+      "behavior": [
+        "M1|M1|M1",
+        "M1|XX|M1",
+        "M1|M1|M1"
+      ],
+      "temp": 100,
+      "category": "gases",
+      "state": "gas",
+      "density": 2
+    },
+    "glue": {
+      "color": "#ffffff",
+      "behavior": "LIQUID",
+      "reactions": {
+        "paper": { "elem1": "sticky_paper", "elem2": null },
+        "wood": { "elem1": "sticky_wood", "elem2": null }
+      },
+      "temp": 20,
+      "category": "liquids",
+      "state": "liquid",
+      "density": 1200,
+      "viscosity": 40000,
+      "stain": 0.1
+    },
+    "sticky_paper": {
+      "color": "#f5f5dc",
+      "behavior": "STURDYPOWDER",
+      "temp": 20,
+      "category": "solids",
+      "state": "solid",
+      "density": 850
+    },
+    "sticky_wood": {
+      "color": "#8b4513",
+      "behavior": "STURDYPOWDER",
+      "temp": 20,
+      "category": "solids",
+      "state": "solid",
+      "density": 650
+    },
+    "neon": {
+      "color": "#ff00ff",
+      "behavior": [
+        "M1|M1|M1",
+        "M1|XX|M1",
+        "M1|M1|M1"
+      ],
+      "temp": 20,
+      "category": "gases",
+      "state": "gas",
+      "density": 0.9,
+      "glow": true
+    },
+    "helium": {
+      "color": "#ffb6c1",
+      "behavior": [
+        "M1|M1|M1",
+        "M1|XX|M1",
+        "M1|M1|M1"
+      ],
+      "temp": 20,
+      "category": "gases", 
+      "state": "gas",
+      "density": 0.18
+    },
+    "liquid_nitrogen": {
+      "color": "#e0ffff",
+      "behavior": "LIQUID",
+      "reactions": {
+        "water": { "elem1": "ice", "elem2": "nitrogen" },
+        "lava": { "elem1": "rock", "elem2": "nitrogen" }
+      },
+      "temp": -196,
+      "category": "liquids",
+      "state": "liquid",
+      "density": 808
+    },
+    "nitrogen": {
+      "color": "#add8e6",
+      "behavior": [
+        "M1|M1|M1",
+        "M1|XX|M1", 
+        "M1|M1|M1"
+      ],
+      "temp": 20,
+      "category": "gases",
+      "state": "gas",
+      "density": 1.25
+    },
+    "uranium": {
+      "color": "#32cd32",
+      "behavior": "POWDER",
+      "reactions": {
+        "neutron": { "elem1": "fission", "elem2": "radiation", "chance": 0.8 }
+      },
+      "temp": 20,
+      "category": "powders",
+      "state": "solid",
+      "density": 19050,
+      "radioactive": true
+    },
+    "neutron": {
+      "color": "#ffffff",
+      "behavior": [
+        "M1|M1|M1",
+        "M1|XX|M1",
+        "M1|M1|M1"
+      ],
+      "temp": 20,
+      "category": "energy",
+      "state": "energy",
+      "density": 0,
+      "life": 100
+    },
+    "radiation": {
+      "color": "#00ff00",
+      "behavior": [
+        "M1|M1|M1",
+        "M1|XX|M1",
+        "M1|M1|M1"
+      ],
+      "temp": 20,
+      "category": "energy",
+      "state": "energy",
+      "density": 0,
+      "life": 200
+    },
+    "fission": {
+      "color": "#ffff00",
+      "behavior": [
+        "CR:explosion,M2|CR:explosion,M2|CR:explosion,M2",
+        "CR:explosion,M2|XX|CR:explosion,M2",
+        "CR:explosion,M2|CR:explosion,M2|CR:explosion,M2"
+      ],
+      "temp": 2000,
+      "category": "energy",
+      "state": "plasma",
+      "density": 0,
+      "life": 5
+    },
+    "explosion": {
+      "color": "#ff4500",
+      "behavior": [
+        "M2%50|M2%50|M2%50",
+        "M2%50|XX|M2%50",
+        "M2%50|M2%50|M2%50"
+      ],
+      "temp": 3000,
+      "category": "energy",
+      "state": "plasma",
+      "density": 0,
+      "life": 10
+    },
+    "soap": {
+      "color": "#f0f8ff",
+      "behavior": "STURDYPOWDER",
+      "reactions": {
+        "water": { "elem1": "soap_water", "elem2": null }
+      },
+      "temp": 20,
+      "category": "solids",
+      "state": "solid",
+      "density": 1100
+    },
+    "soap_water": {
+      "color": "#f5f5f5",
+      "behavior": "LIQUID",
+      "reactions": {
+        "dirt": { "elem1": "clean_water", "elem2": null },
+        "oil": { "elem1": "clean_water", "elem2": null }
+      },
+      "temp": 20,
+      "category": "liquids",
+      "state": "liquid",
+      "density": 1020
+    },
+    "clean_water": {
+      "color": "#87ceeb",
+      "behavior": "LIQUID", 
+      "temp": 20,
+      "category": "liquids",
+      "state": "liquid",
+      "density": 1000
+    },
+    "magnet": {
+      "color": "#c0c0c0",
+      "behavior": [
+        "XX|CR:iron,M1|XX",
+        "CR:iron,M1|XX|CR:iron,M1", 
+        "XX|CR:iron,M1|XX"
+      ],
+      "temp": 20,
+      "category": "special",
+      "state": "solid",
+      "density": 7800
+    },
+    "battery": {
+      "color": "#ffd700",
+      "behavior": "STURDYPOWDER",
+      "reactions": {
+        "water": { "elem1": "electric_water", "elem2": null }
+      },
+      "temp": 20,
+      "category": "special",
+      "state": "solid",
+      "density": 2000,
+      "charge": 100
+    },
+    "electric_water": {
+      "color": "#00bfff",
+      "behavior": [
+        "M1%75|CR:spark,M1%50|M1%75",
+        "CR:spark,M1%50|XX|CR:spark,M1%50",
+        "M2|M1|M2"
+      ],
+      "temp": 20,
+      "category": "liquids",
+      "state": "liquid",
+      "density": 1000
+    },
+    "spark": {
+      "color": "#ffff00",
+      "behavior": [
+        "M2|M2|M2",
+        "M2|XX|M2",
+        "M2|M2|M2"
+      ],
+      "temp": 1000,
+      "category": "energy",
+      "state": "energy",
+      "density": 0,
+      "life": 5
+    },
+    "slime": {
+      "color": "#32cd32",
+      "behavior": "LIQUID",
+      "reactions": {
+        "salt": { "elem1": "dried_slime", "elem2": null }
+      },
+      "temp": 20,
+      "category": "liquids",
+      "state": "liquid",
+      "density": 1200,
+      "viscosity": 100000,
+      "stain": 0.05
+    },
+    "dried_slime": {
+      "color": "#228b22",
+      "behavior": "STURDYPOWDER",
+      "temp": 20,
+      "category": "solids",
+      "state": "solid",
+      "density": 800
+    },
+    "crystal": {
+      "color": "#e6e6fa",
+      "behavior": "STURDYPOWDER",
+      "reactions": {
+        "light": { "elem1": "rainbow", "elem2": null, "chance": 0.1 }
+      },
+      "temp": 20,
+      "category": "solids",
+      "state": "solid",
+      "density": 2650,
+      "hardness": 0.9
+    },
+    "rainbow": {
+      "color": ["#ff0000", "#ff8000", "#ffff00", "#00ff00", "#0080ff", "#8000ff"],
+      "behavior": [
+        "M1|M1|M1",
+        "M1|XX|M1",
+        "M1|M1|M1"
+      ],
+      "temp": 20,
+      "category": "special",
+      "state": "energy",
+      "density": 0,
+      "life": 50
+    }
+  },
+  
+  "reactions": {
+    "sand_molten_sand": {
+      "elem1": "sand",
+      "elem2": "fire",
+      "elem1Result": "molten_sand",
+      "elem2Result": null,
+      "tempMin": 1500
+    },
+    "molten_sand_glass": {
+      "elem1": "molten_sand", 
+      "elem2": "cold",
+      "elem1Result": "glass",
+      "elem2Result": null,
+      "tempMax": 600
+    },
+    "flour_water_dough": {
+      "elem1": "flour",
+      "elem2": "water", 
+      "elem1Result": "waffle_batter",
+      "elem2Result": null,
+      "chance": 0.7
+    },
+    "milk_flour_batter": {
+      "elem1": "milk",
+      "elem2": "flour",
+      "elem1Result": "waffle_batter", 
+      "elem2Result": null
+    },
+    "ice_cream_heat": {
+      "elem1": "ice_cream",
+      "tempMin": 20,
+      "elem1Result": "milk"
+    }
+  },
+
+  "categories": {
+    "food": {
+      "name": "Food & Cooking",
+      "color": "#ffa500"
+    },
+    "special": {
+      "name": "Special Materials", 
+      "color": "#9370db"
+    },
+    "energy": {
+      "name": "Energy & Physics",
+      "color": "#ff6347"
+    }
+  }
+}
